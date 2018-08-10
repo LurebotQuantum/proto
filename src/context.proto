@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package quantum;
+
+message Context {
+  uint32 uid = 1;
+  uint32 cid = 2;
+  enum ChatType {
+    PRIVATE = 0;
+    GROUP = 1;
+  }
+  ChatType chat_type = 3;
+}

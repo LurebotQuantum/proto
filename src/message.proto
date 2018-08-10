@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package quantum;
+
+import "proto/entity.proto";
+import "proto/context.proto";
+
+message Message {
+  Entity entity = 1;
+  Context context = 2;
+}
