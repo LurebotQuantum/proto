@@ -4,19 +4,10 @@ package quantum;
 
 message Entity {
   enum Type {
-    TEXT = 0;
-    IMAGE = 1;
-    COMPOSED = 2;
+    IMAGE = 0;
+    AT = 1;
   }
   Type type = 1;
-
-  string text = 2;
-
-  message Image {
-    string encoding = 1;
-    string content = 2;
-  }
-  Image image = 3;
-
-  repeated Entity entities = 4;
+  int32 offset = 2;
+  int32 length = 3;
 }

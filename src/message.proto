@@ -2,10 +2,11 @@ syntax = "proto3";
 
 package quantum;
 
-import "proto/entity.proto";
-import "proto/context.proto";
+import "entity.proto";
+import "context.proto";
 
 message Message {
-  Entity entity = 1;
-  Context context = 2;
+  string text = 1;
+  repeated Entity entities = 2;
+  Context context = 3;
 }
