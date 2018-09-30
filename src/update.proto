@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package quantum;
+
+message Update {
+  oneof update {
+    Message message = 1;
+    Event event = 2;
+  }
+} // message Update
+
+message Message {
+  string text = 1;
+  message Entity {
+    enum Type {
+      CUSTOM = 0;
+      IMAGE = 1;
+      AT = 2;
+    }
+    Type type = 1;
+    int32 offset = 2;
+    int32 length = 3;
+  } // message Entity
+  repeated Entity entities = 2;
+  message Context {
+    string aid = 1; // adpater/im specific id for user
+    string cid = 2; // adapter/im specific id for chat
+    enum ChatType {
+      PRIVATE = 0;
+      GROUP = 1;
+    } // enum ChatType
+    ChatType type = 3;
+    string ext = 4;
+  } // message Context
+  Context context = 3;
+} // message Message
+
+message Event {
+  
+} // message Event
